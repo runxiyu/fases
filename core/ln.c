@@ -19,10 +19,6 @@ int main(int argc, char *const argv[]) {
 	int argument;
 	char param[256], *buffer = NULL, *argv0 = strdup(argv[0]);
 
-	if (argc != 3) {
-		print_usage(argv[0], DESCRIPTION, OPERANDS, VERSION);
-		return 1;
-	}
 	while ((argument = getopt(argc, argv, "fsPL")) != -1) {
 		if (argument == '?') {
 			print_usage(argv[0], DESCRIPTION, OPERANDS, VERSION);
@@ -30,6 +26,10 @@ int main(int argc, char *const argv[]) {
 		}
 		param[argument] = argument;
 	} argc -= optind; argv += optind;
+	if (argc != 2) {
+		print_usage(argv[0], DESCRIPTION, OPERANDS, VERSION);
+		return 1;
+	}
 	if (param['f']) remove(argv[1]);
 	if (errno && errno != ENOENT) return errprint(argv0, argv[0], errno);
 	errno = 0; /* Not reached if errno == ENOENT (no such file) */
@@ -43,5 +43,5 @@ int main(int argc, char *const argv[]) {
 		link(buffer, argv[1]);
 	}
 	else link(argv[0], argv[1]);
-	return errprint(argv0, argv[1], errno);
+	return errprint(argv0, argv[0], errno);
 }
