@@ -1,11 +1,11 @@
 # (You can modify this file as you wish)
 # The syntax of this file is simple.
 # <maintainer's IRC or XMPP nick>:
-#   name: <real name or "None">
-#   status: <contributor/founder/maintainer>
-#   files:
-#     <all files the maintainer owns or has contributed to>
-#   cr: <copyright>
+# 	name: <real name or "None">
+# 	status: <contributor/founder/maintainer>
+# 	files:
+# 		<all files the maintainer owns or has contributed to>
+# 	cr: <copyright>
 # Please use tab characters for indenting.
 
 "f_":
@@ -33,3 +33,13 @@
 		*/Makefile
 		config.mk
 	cr: Copyright (C) 2022 Leah Rowe <leah@libreboot.org>
+
+"runxiyu":
+	name: Runxi Yu
+	status: contributor
+	files:
+		Makefile
+		core/ln.c
+		core/basename.c
+		core/cmp.c
+	cr: Copyright (C) 2024 Runxi Yu <https://runxiyu.org>
