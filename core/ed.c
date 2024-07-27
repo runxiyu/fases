@@ -15,7 +15,7 @@
 #define OPERANDS    "[-p prompt]"
 #include "../common/common.h"
 
-void   print_error();
+void   print_error(const char *error, int help_mode);
 size_t c_append(char buffer[4096]);
 
 int main(int argc, char *argv[]) {
@@ -130,7 +130,7 @@ size_t c_append(char buffer[4096]) {
 	return bytes_read;
 }
 
-void printUsage() {
+void printUsage(void) {
 	printf("Ferass' Base System. (%s)\n\n"
 	"Usage: ed [-p prompt_string]\n\n"
 	"Edit text.\n\n"
