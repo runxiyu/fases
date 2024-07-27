@@ -1,0 +1,14 @@
+skip_clone: false
+
+steps:
+  build:
+    when:
+      branch: [master]
+      event: [push, manual]
+    image: alpine
+    commands:
+      - apk add --no-cache build-base gcc
+      - make
+    artifacts:
+      paths:
+        - ./box
