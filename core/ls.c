@@ -124,7 +124,7 @@ int ls(char *path) {
 		if (dot && !param['a'] && !param['A']) continue;
 		if ((cwdname || prevdir) && param['A']) continue;
 		
-		if (param['i']) printf("%lu ", dirtree->d_ino);
+		if (param['i']) printf("%llu ", (unsigned long long)dirtree->d_ino);
 		if (param['l']) {
 			char *fullpath = malloc(strlen(path) + strlen(name) + 2);
 			if (fullpath) {
@@ -178,7 +178,7 @@ int ls(char *path) {
 				if (!param['n']) printf("%s ", getgrgid(file_status.st_gid)->gr_name);
 			if (param['n']) printf("%u ", file_status.st_gid);
 			                   /* Size of file */
-			printf("%lu ", file_status.st_size);
+			printf("%llu ", (unsigned long long)file_status.st_size);
 			                   /* Date and time */
 			int strftime_status = strftime(file_moddate, sizeof(file_moddate), 
 					"%b %e %H:%MM", localtime(&file_status.st_mtime));
