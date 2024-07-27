@@ -16,8 +16,8 @@
 #include "../common/common.h"
 
 int main(int argc, char *const argv[]) {
-	int argument, i = 1, lines, file_lines = 0;
-	FILE *file;
+	int argument, i = 1, lines = 10, file_lines = 0;
+	FILE *file = NULL;
 
 	char s[4096], *argv0 = strdup(argv[0]);
 
@@ -30,14 +30,11 @@ int main(int argc, char *const argv[]) {
 			lines = strtol(optarg, NULL, 10);
 			if (errno) return errprint(argv[0], "strtol()", errno);
 		}
-		else
-			lines = 10;
 	} argc -= optind; argv += optind;
 	if (argc < 1) {
 		while (read(STDIN_FILENO, s, 4096) > 0)
 			printf("%s", s);
 	}
-	if (!lines) lines = 10;
 	for (i = 0; i != argc; i++) {
 		if (strcmp(argv[i], "-")) file = fopen(argv[i], "r");
 		else while (read(STDIN_FILENO, s, 4096) > 0) printf("%s", s);
