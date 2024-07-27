@@ -19,7 +19,7 @@ void   print_error();
 size_t c_append(char buffer[4096]);
 
 int main(int argc, char *argv[]) {
-	int argument, i = 0, fildes;
+	int argument, i = 0, fildes = -1;
 	char buffer[4096], *edit_pathname, *prompt_string = "", 
 		 command_string[4096], *error = "", *argv0 = strdup(argv[0]);
 	int help_mode = 0;
@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
 				fildes = open(edit_pathname, O_RDONLY | O_CREAT);
 				if (errno) return errprint(argv0, "open()", errno);
 				printf("%ld\n", read(fildes, buffer, 4096));
-				if (fildes) close(fildes);
+				if (fildes != -1) close(fildes);
 				continue;
 			case 'a':
 				c_append(buffer);
@@ -96,10 +96,10 @@ int main(int argc, char *argv[]) {
 				if (errno) return errprint(argv0, "open()", errno);
 				printf("%ld\n", write(fildes, buffer, strlen(buffer)));
 				if (errno) return errprint(argv0, "write()", errno);
-				if (fildes) close(fildes);
+				if (fildes != -1) close(fildes);
 				continue;	
 			case 'q':
-				if (fildes) close(fildes);
+				if (fildes != -1) close(fildes);
 				return errprint(argv0, NULL, errno);
 			case 'H': /* Help mode */
 				if (i < 0) {
