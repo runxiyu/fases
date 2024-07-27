@@ -25,8 +25,10 @@ int main(int argc, char *argv[]) {
 	int file, i, argument;
 	struct timespec times[2];
 	struct tm time_tm = { 0 }; /* Used by strptime() */
-	char param[256], *argv0 = strdup(argv[0]), *datefmt, *date_string;
-	for (i = 0; i < 256 && (param[i] = 0); i++);
+	char param[256] = { 0 };
+	char *argv0 = strdup(argv[0]);
+	char *datefmt;
+	char *date_string;
 	while ((argument = getopt(argc, argv, "acmt:")) != -1) {
 		if (argument == '?')
 			return print_usage(argv0, DESCRIPTION, OPERANDS, VERSION);
@@ -54,6 +56,8 @@ int main(int argc, char *argv[]) {
 					return print_usage(argv0, DESCRIPTION, OPERANDS, VERSION);
 			}
 			date_string = optarg;
+		} else {
+		        return print_usage(argv0, DESCRIPTION, OPERANDS, VERSION);
 		}
 		param[(uint8_t)argument] = 1;
 	} argc -= optind; argv += optind;
