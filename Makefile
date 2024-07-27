@@ -1,11 +1,13 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
+# Copyright (C) 2024 Runxi Yu <https://runxiyu.org>
 # Copyright (C) 2022, 2023 Ferass El Hafidi <vitali64pmemail@protonmail.com>
 # Copyright (C) 2022 Leah Rowe <leah@libreboot.org>
 
 .POSIX:
 
 # Commands
+# ========
 
 all: config clean prepbox genbox box
 include ./config.mk
@@ -68,4 +70,4 @@ remove:
 # =========
 
 box.o: prepbox
-	$(CC) $(CFLAGS) $(NOLINKER) box.c -o box.o
+	$(CC) $(CFLAGS) -c box.c -o box.o
