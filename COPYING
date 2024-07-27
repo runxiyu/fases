@@ -1,0 +1,11 @@
+The fases project is primarily licensed under the following two (2) licenses:
+
+  1. The 2-Clause ("Simplified") BSD License (COPYING.3BSD)
+  2. The GNU General Public License, version 3 or any later version (COPYING.GPLv3)
+
+The 2-Clause BSD License applies to most "core" utilities, while the GNU
+General Public License applies to most "extended" utilities. Please check the
+headers of each source file for an SPDX-License-Identifier.
+
+Additionally, the documentation is licensed under the FreeBSD documentation
+license (COPYING.FBDL).
