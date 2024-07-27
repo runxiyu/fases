@@ -6,10 +6,13 @@
 
 VERSION="fases v0.1r"$$(git rev-list --count HEAD)"."$$(git rev-parse --short HEAD)""
 CC=cc
-CFLAGS=-D_POSIX_C_SOURCE=200809L -DVERSION=\"$(VERSION)\" -I. -Wall -Werror -Wextra -g -pedantic -std=c99
+CFLAGS=-D_POSIX_C_SOURCE=200809L -DVERSION=\"$(VERSION)\" -I. -Wall -Werror -Wextra -g -pedantic -Wno-unused-parameter -std=c99
+BOXFLAGS=-DFASESBOX
 
-CORE=\
-	[\
+# Which programs do you want to build? This affects both the standalone
+# programs produced if you run `make standalone', and the programs put
+# into the multi-call binary if you run `make box' or simply `make'.
+BINS=\
 	basename\
 	cat\
 	chmod\
@@ -39,13 +42,9 @@ CORE=\
 	tty\
 	uname\
 	unlink\
-	wc
-EXTRA=\
+	wc\
 	errno\
 	yes
-
-INCLUDE_EXTRA=n
-INCLUDE_CORE=y
 
 DESTDIR=
 PREFIX=/usr/local

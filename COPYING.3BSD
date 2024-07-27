@@ -1,6 +1,6 @@
 # This license applies to all POSIX utilities fases provides, 
-# unless stated otherwise. This includes fases sh and fases core
-# (core/).
+# unless stated otherwise. This includes fases sh and core POSIX
+# utilities.
 
 Copyright (C) 2022, 2023 Ferass EL HAFIDI
 Copyright (C) 2022 Leah Rowe
