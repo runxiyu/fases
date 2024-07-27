@@ -16,7 +16,7 @@
 #include "../common/common.h"
 
 int main(int argc, char *const argv[]) {
-	int argument, i = 1, lines, file_lines;
+	int argument, i = 1, lines, file_lines = 0;
 	FILE *file;
 
 	char s[4096], *argv0 = strdup(argv[0]);
