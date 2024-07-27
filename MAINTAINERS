@@ -42,4 +42,8 @@
 		core/ln.c
 		core/basename.c
 		core/cmp.c
+		core/tail.c
+		core/touch.c
+		core/more.c
+		core/ed.c
 	cr: Copyright (C) 2024 Runxi Yu <https://runxiyu.org>
