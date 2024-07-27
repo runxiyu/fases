@@ -2,7 +2,7 @@
 /*
  * Copyright (C) 2022, 2023 Ferass El Hafidi <vitali64pmemail@protonmail.com>
  */
-#define _XOPEN_SOURCE /* WHY???? */
+#define _XOPEN_SOURCE 700
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdio.h>
