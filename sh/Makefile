@@ -27,4 +27,4 @@ sh.o:
 	echo "#define COMPILETIME \"$$(date)\"" >> version.h
 	echo                                    >> version.h
 	echo "#endif"                           >> version.h
-	for s in *.c; do $(CC) $(CFLAGS) $(NOLINKER) $$s -o $${s%.c}.o; done
+	for s in *.c; do $(CC) $(CFLAGS) -c $$s -o $${s%.c}.o; done

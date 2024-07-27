@@ -17,7 +17,7 @@ config:
 	[ ! -e $< ] || $(CC) $(CFLAGS) $< ../common/common.c -o $@
 
 .c.o:
-	[ ! -e $< ] || $(CC) $(CFLAGS) $(NOLINKER) $< -o $@
+	[ ! -e $< ] || $(CC) $(CFLAGS) -c $< -o $@
 
 # Cleaning
 clean:
