@@ -9,6 +9,37 @@
 #include <libgen.h>
 #include <stdio.h>
 /*  END  */
+int test_main(int, char**);
+int basename_main(int, char**);
+int cat_main(int, char**);
+int chmod_main(int, char**);
+int chown_main(int, char**);
+int cmp_main(int, char**);
+int date_main(int, char**);
+int dirname_main(int, char**);
+int echo_main(int, char**);
+int ed_main(int, char**);
+int false_main(int, char**);
+int head_main(int, char**);
+int link_main(int, char**);
+int ln_main(int, char**);
+int ls_main(int, char**);
+int mkdir_main(int, char**);
+int more_main(int, char**);
+int mv_main(int, char**);
+int printf_main(int, char**);
+int rm_main(int, char**);
+int sleep_main(int, char**);
+int tail_main(int, char**);
+int tee_main(int, char**);
+int test_main(int, char**);
+int touch_main(int, char**);
+int tput_main(int, char**);
+int true_main(int, char**);
+int tty_main(int, char**);
+int uname_main(int, char**);
+int unlink_main(int, char**);
+int wc_main(int, char**);
 /* START */
 int main(int argc, char *argv[]) {
 	if (!strcmp(basename(argv[0]),"box") && argc > 1) {
@@ -16,12 +47,73 @@ int main(int argc, char *argv[]) {
 		argv++;
 	} if(0);
 /*  END  */
+	else if(!strcmp(basename(argv[0]), "[")) return test_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "basename")) return basename_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "cat")) return cat_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "chmod")) return chmod_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "chown")) return chown_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "cmp")) return cmp_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "date")) return date_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "dirname")) return dirname_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "echo")) return echo_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "ed")) return ed_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "false")) return false_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "head")) return head_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "link")) return link_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "ln")) return ln_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "ls")) return ls_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "mkdir")) return mkdir_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "more")) return more_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "mv")) return mv_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "printf")) return printf_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "rm")) return rm_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "sleep")) return sleep_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "tail")) return tail_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "tee")) return tee_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "test")) return test_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "touch")) return touch_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "tput")) return tput_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "true")) return true_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "tty")) return tty_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "uname")) return uname_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "unlink")) return unlink_main(argc, argv);
+	else if(!strcmp(basename(argv[0]), "wc")) return wc_main(argc, argv);
 /* START */
 	else if (!strcmp(basename(argv[0]), "box") && argc == 1) {
 		printf("fases box.\n");
 		printf("Usage: box command [args] ...\n");
 /*  END  */
-		printf("¯\\_(ツ)_/¯ No commands found.");
+		printf("[ ");
+		printf("basename ");
+		printf("cat ");
+		printf("chmod ");
+		printf("chown ");
+		printf("cmp ");
+		printf("date ");
+		printf("dirname ");
+		printf("echo ");
+		printf("ed ");
+		printf("false ");
+		printf("head ");
+		printf("link ");
+		printf("ln ");
+		printf("ls ");
+		printf("mkdir ");
+		printf("more ");
+		printf("mv ");
+		printf("printf ");
+		printf("rm ");
+		printf("sleep ");
+		printf("tail ");
+		printf("tee ");
+		printf("test ");
+		printf("touch ");
+		printf("tput ");
+		printf("true ");
+		printf("tty ");
+		printf("uname ");
+		printf("unlink ");
+		printf("wc ");
 /* START */
 		printf("\n");
 	}
@@ -31,4 +123,4 @@ int main(int argc, char *argv[]) {
 	return 0;
 }
 /*  END  */
-/* Generated on Tue 21 Feb 20:06:57 CET 2023 */
+/* Generated on Sat Jul 27 01:23:37 PM CST 2024 */
