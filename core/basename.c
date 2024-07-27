@@ -14,7 +14,7 @@
 #include "../common/common.h"
 
 int main(int argc, char *argv[]) {
-	int status;
+	int status = 0;
 	long unsigned int i;
 	char *basenamestr;
 
