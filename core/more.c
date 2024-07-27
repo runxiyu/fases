@@ -17,7 +17,7 @@
 #include "../common/common.h"
 
 int main(int argc, char *const argv[]) {
-	int i = 0, argument, success, read_file;
+	int i = 0, argument, success = 0, read_file = 1;
 	long int /* columns, */ lines;
 	char buffer[4096], cmd, *argv0 = strdup(argv[0]);
 	struct winsize w;
@@ -40,7 +40,6 @@ int main(int argc, char *const argv[]) {
 	}
 	file = fopen(argv[0], "r");
 	if (errno) return errprint(argv0, argv[0], errno);
-	success = 0;
 	while (!success) {
 		if (!read_file) read_file = 1; /* 1 => read on a page-by-page basis
 		                                * 0 => don't read at all 
