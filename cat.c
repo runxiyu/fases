@@ -23,7 +23,7 @@ int cat_main(int argc, char *argv[]) {
 #else
 int main(int argc, char *argv[]) {
 #endif
-	int file, argument, i = 1, unbuffered, err;
+	int file, argument, i = 1, unbuffered, err = 0;
 	char *argv0 = strdup(argv[0]);
 	while ((argument = getopt(argc, argv, "u")) != -1) {
 		if (argument == '?') {
