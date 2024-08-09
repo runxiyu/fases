@@ -19,7 +19,7 @@ int mkdir_main(int argc, char *argv[]) {
 #else
 int main(int argc, char *argv[]) {
 #endif
-	int success, argument, i = 0;
+	int success = 0, argument, i = 0;
 	char *argv0 = strdup(argv[0]);
 	if (argc == 1) {
 		print_usage(argv[0], DESCRIPTION, OPERANDS, VERSION);
