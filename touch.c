@@ -31,8 +31,8 @@ int main(int argc, char *argv[]) {
 	struct tm time_tm = { 0 }; /* Used by strptime() */
 	char param[256] = { 0 };
 	char *argv0 = strdup(argv[0]);
-	char *datefmt;
-	char *date_string;
+	char *datefmt = NULL;
+	char *date_string = NULL;
 	while ((argument = getopt(argc, argv, "acmt:")) != -1) {
 		if (argument == '?')
 			return print_usage(argv0, DESCRIPTION, OPERANDS, VERSION);
@@ -65,6 +65,9 @@ int main(int argc, char *argv[]) {
 		}
 		param[(uint8_t)argument] = 1;
 	} argc -= optind; argv += optind;
+	if (datefmt == NULL || date_string == NULL) {
+	        return print_usage(argv0, DESCRIPTION, OPERANDS, VERSION);
+	}
 	if (argc < 1) return print_usage(argv0, DESCRIPTION, OPERANDS, VERSION);
 	if (param['t']) {
 		strptime(date_string, datefmt, &time_tm);
